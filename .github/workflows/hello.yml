@@ -1,0 +1,26 @@
+name: "Print hello"
+
+on:
+  push:
+    branches: [ addActions ]
+  pull_request:
+    branches: [ main ] 
+
+jobs:
+  print_greet:
+    # Runner: na jakiej maszynie uruchomić
+    runs-on: ubuntu-latest
+
+    # Strategy: testuj na wielu wersjach Python
+    strategy:
+      matrix:
+        python-version: ['3.11']
+
+    # Steps: kroki do wykonania
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Run print hello
+        run: |
+          python hello.py
