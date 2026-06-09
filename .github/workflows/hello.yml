@@ -20,4 +20,4 @@ jobs:
     steps:
       - name: Run print hello
         run: |
-          python */hello.py
+          python hello.py
